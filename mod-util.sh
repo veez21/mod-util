@@ -1,12 +1,12 @@
 ##########################################################################################
 #
-# veez21 Terminal Utility Functions
+# Terminal Utility Functions
 # by veez21
 #
 ##########################################################################################
 
-MODUTILVER=v1
-MODUTILVCODE=1
+MODUTILVER=v2
+MODUTILVCODE=2
 
 #=========================== Determine if A/B OTA device
 if [ -d /system_root ]; then
@@ -105,12 +105,12 @@ loadBar=' '			# Load UI
 }
 
 # Divider (based on $MODTITLE, $VER, and $REL characters)
-character_no=$(echo $MODTITLE $VER $REL | tr " " '_' | wc -c)
+character_no=$(echo "$MODTITLE $VER $REL" | tr " " '_' | wc -c)
 div="${Bl}$(printf '%*s' "${character_no}" '' | tr " " "=")${N}"
 
 # Title Div
 title_div() {
-	no=$(echo $@ | wc -c)
+	no=$(echo "$@" | wc -c)
 	extdiv=$((no-character_no))
 	echo "${W}$@${N} ${Bl}$(printf '%*s' "$extdiv" '' | tr " " "=")${N}"
 }
@@ -118,10 +118,10 @@ title_div() {
 # set_file_prop <property> <value> <prop.file>
 set_file_prop() {
 	if [ -f "$3" ]; then
-		if grep "$1=" $3; then
-			sed -i "s/${1}=.*/${1}=${2}/g" $3
+		if grep "$1=" "$3"; then
+			sed -i "s/${1}=.*/${1}=${2}/g" "$3"
 		else
-			echo "$1=$2" >> $3
+			echo "$1=$2" >> "$3"
 		fi
 	else
 		echo "$3 doesn't exist!"
