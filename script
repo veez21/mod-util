@@ -14,8 +14,8 @@ _name=$(basename $0)
 MOUNTPATH=/sbin/.core/img
 MODDIR="$MOUNTPATH/$ID"
 if [ ! -d $MODDIR ]; then
-	echo "Module not detected!"
-	exit 1
+  echo "Module not detected!"
+  exit 1
 fi
 
 # Set Log Files
