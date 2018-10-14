@@ -13,10 +13,12 @@ if [ -d /system_root ]; then
   isABDevice=true
   SYSTEM=/system_root/system
   SYSTEM2=/system
+  CACHELOC=/data/cache
 else
   isABDevice=false
   SYSTEM=/system
   SYSTEM2=/system
+  CACHELOC=/cache
 fi
 
 #=========================== Set Busybox (Used by Magisk) up
