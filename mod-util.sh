@@ -5,8 +5,8 @@
 #
 ##########################################################################################
 
-MODUTILVER=v2
-MODUTILVCODE=2
+MODUTILVER=v2.1
+MODUTILVCODE=21
 
 #=========================== Determine if A/B OTA device
 if [ -d /system_root ]; then
