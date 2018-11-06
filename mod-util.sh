@@ -204,12 +204,11 @@ upload_logs() {
   $BBok && {
     test_connection
     [ $? -ne 0 ] && exit
-    verUp=none; oldverUp=none; logUp=none; oldlogUp=none;
     echo "Uploading logs"
-    [ -s $VERLOG ] && verUp=$(cat $VERLOG | nc termbin.com 9999)
-    [ -s $oldVERLOG ] && oldverUp=$(cat $oldVERLOG | nc termbin.com 9999)
-    [ -s $LOG ] && logUp=$(cat $LOG | nc termbin.com 9999)
-    [ -s $oldLOG ] && oldlogUp=$(cat $oldLOG | nc termbin.com 9999)
+    [ -s $VERLOG ] && verUp=$(cat $VERLOG | nc termbin.com 9999) || verUp=none
+    [ -s $oldVERLOG ] && oldverUp=$(cat $oldVERLOG | nc termbin.com 9999) || oldverUp=none
+    [ -s $LOG ] && logUp=$(cat $LOG | nc termbin.com 9999) || logUp=none
+    [ -s $oldLOG ] && oldlogUp=$(cat $oldLOG | nc termbin.com 9999) || oldlogUp=none
     echo -n "Link: "
     echo "$MODEL ($DEVICE) API $API\n$ROM\n$ID\n
     O_Verbose: $oldverUp
