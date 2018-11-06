@@ -221,6 +221,17 @@ upload_logs() {
   exit
 }
 
+# Print Random
+# Prints a message at random
+# CHANCES - no. of chances <integer>
+# TARGET - target value out of CHANCES <integer>
+prandom() {
+  local CHANCES=2
+  local TARGET=2
+  [ "$1" ==  "-c" ] && { local CHANCES=$2; local TARGET=$3; shift 3; }
+  [ "$((RANDOM%CHANCES+1))" -eq "$TARGET" ] && echo "$@"
+}
+
 # Heading
 mod_head() {
   clear
