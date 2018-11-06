@@ -3,7 +3,7 @@
 This template is for Making a script with visual elements which can be executed in a Terminal app in Android, **as a Magisk Module**.  
 This provides you with useful functions that might help you easily accomplish stuff for the functions that you're making in you script.
 
-### Magisk Modules that uses this template
+### Magisk Modules that uses this template (you can refer to how things are used by these modules)
 * [Terminal Debloater](https://github.com/Magisk-Modules-Repo/terminal_debloater)
 * [Terminal App Systemizer](https://github.com/Magisk-Modules-Repo/terminal_systemizer)
 * Others
