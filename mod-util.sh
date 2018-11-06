@@ -113,7 +113,7 @@ loadBar=' '			# Load UI
 }
 
 # No. of characters in $MODTITLE, $VER, and $REL
-character_no=$(echo "$MODTITLE $VER $REL" | tr " " '_' | wc -c)
+character_no=$(echo "$MODTITLE $VER $REL" | wc -c)
 
 # Divider
 div="${Bl}$(printf '%*s' "${character_no}" '' | tr " " "=")${N}"
