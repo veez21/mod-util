@@ -202,8 +202,7 @@ test_connection() {
 # Logs included: VERLOG LOG oldVERLOG oldLOG
 upload_logs() {
   $BBok && {
-    test_connection
-    [ $? -ne 0 ] && exit
+    test_connection || exit
     echo "Uploading logs"
     [ -s $VERLOG ] && verUp=$(cat $VERLOG | nc termbin.com 9999) || verUp=none
     [ -s $oldVERLOG ] && oldverUp=$(cat $oldVERLOG | nc termbin.com 9999) || oldverUp=none
