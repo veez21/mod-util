@@ -33,7 +33,7 @@ set_busybox() {
   if [ -x "$1" ]; then
     for i in $(${1} --list); do
       if [ "$i" != 'echo' ]; then
-        alias "$i"="${1} $i" 2>>$LOG >>$LOG
+        alias "$i"="${1} $i" >>$LOG 2>&1
       fi
     done
     _busybox=true
@@ -195,7 +195,7 @@ e_spinner() {
 # tests if there's internet connection
 test_connection() {
   echo -n "Testing internet connection "
-  ping -q -c 1 -W 1 google.com >/dev/null 2>/dev/null && echo "- OK" || { echo "Error"; false; }
+  ping -q -c 1 -W 1 google.com >/dev/null 2>&1 && echo "- OK" || { echo "Error"; false; }
 }
 
 # Log files will be uploaded to termbin.com
