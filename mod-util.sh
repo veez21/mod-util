@@ -8,6 +8,24 @@
 MODUTILVER=v2.2
 MODUTILVCODE=22
 
+# Check A/B slot
+SLOT=`grep_cmdline androidboot.slot_suffix`
+if [ -z $SLOT ]; then
+  SLOT=_`grep_cmdline androidboot.slot`
+  [ $SLOT = "_" ] && {
+    SLOT=
+    isABDevice=true
+    SYSTEM=/system_root/system
+    SYSTEM2=/system
+    CACHELOC=/data/cache
+  } || {
+    isABDevice=false
+    SYSTEM=/system
+    SYSTEM2=/system
+    CACHELOC=/cache
+  }
+fi
+
 #=========================== Set Busybox up
 # Variables:
 #  BBok - If busybox detection was ok (true/false)

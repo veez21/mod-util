@@ -13,19 +13,6 @@ ls /data >/dev/null 2>&1 || { echo "$ID needs to run as root!"; echo "type 'su' 
 # Import util_functions.sh
 [ -f /data/adb/magisk/util_functions.sh ] && . /data/adb/magisk/util_functions.sh || exit 1
 
-# Determine if A/B OTA device
-if [ -d /system_root ]; then
-  isABDevice=true
-  SYSTEM=/system_root/system
-  SYSTEM2=/system
-  CACHELOC=/data/cache
-else
-  isABDevice=false
-  SYSTEM=/system
-  SYSTEM2=/system
-  CACHELOC=/cache
-fi
-
 # Magisk Mod Directory
 MOUNTPATH=/sbin/.core/img
 MODDIR="$MOUNTPATH/$ID"
