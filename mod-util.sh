@@ -61,9 +61,6 @@ fi
 
 #=========================== Default Functions and Variables
 
-# Import util_functions.sh
-[ -f /data/adb/magisk/util_functions.sh ] && . /data/adb/magisk/util_functions.sh || exit 1
-
 # Device Info
 # Variables: BRAND MODEL DEVICE API ABI ABI2 ABILONG ARCH
 BRAND=$(getprop ro.product.brand)
