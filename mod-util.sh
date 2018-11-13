@@ -120,12 +120,13 @@ character_no=$(echo "$MODTITLE $VER $REL" | wc -c)
 # Divider
 div="${Bl}$(printf '%*s' "${character_no}" '' | tr " " "=")${N}"
 
-# title_div <title>
+# title_div [-c] <title>
 # based on $div with <title>
 title_div() {
-  no=$(echo "$@" | wc -c)
-  extdiv=$((no-character_no))
-  echo "${W}$@${N} ${Bl}$(printf '%*s' "$extdiv" '' | tr " " "=")${N}"
+  [ "$1" == "-c" ] && local character_no=$2 && shift 2
+  [ -z $1 ] && { message=; no=0; } || { message="$@ "; no=$(echo "$@" | wc -c); }
+  [ $character_no -gt $no ] && extdiv=$((character_no-no)) || { echo "Invalid!"; return; }
+  echo "${W}$message${N}${Bl}$(printf '%*s' "$extdiv" '' | tr " " "=")${N}"
 }
 
 # set_file_prop <property> <value> <prop.file>
