@@ -20,6 +20,9 @@ if [ ! -d $MODDIR ]; then
   exit 1
 fi
 
+# Load mod-util.sh
+. $MODDIR/mod-util.sh || exit $?
+
 # Set Log Files
 mount -o remount,rw /cache 2>/dev/null
 mount -o rw,remount /cache 2>/dev/null
@@ -33,9 +36,6 @@ oldVERLOG=$CACHELOC/${ID}-verbose-old.log
 # Start Logging verbosely
 mv -f $VERLOG $oldVERLOG 2>/dev/null; mv -f $LOG $oldLOG 2>/dev/null
 set -x 2>$VERLOG
-
-# Load mod-util.sh
-. $MODDIR/mod-util.sh || exit $?
 
 # Main
 # > You can start your MOD here.
