@@ -5,8 +5,8 @@
 #
 ##########################################################################################
 
-MODUTILVER=v2.2
-MODUTILVCODE=22
+MODUTILVER=v2.3
+MODUTILVCODE=23
 
 # Check A/B slot
 SLOT=`grep_cmdline androidboot.slot_suffix`
