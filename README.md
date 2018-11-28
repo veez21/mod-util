@@ -30,7 +30,7 @@ set_perm $MODPATH/mod-util.sh 0 0 0777
 
 Function | How to use | Example | Output
 --- | --- | --- | ---
-`title_div` | `title_div <message>` | `title_div Example` | Outputs a bar with a message:  **Example ==========**
+`title_div` | `title_div [-c] [character no] <message>` | `title_div Example` | Outputs a bar with a message:  **Example ==========**
 `set_file_prop` | `set_file_prop <property> <value> <file.prop>` | `set_file_prop ro.example true /cache/example.prop` | **none**
 `ProgressBar` | `ProgressBar <progress> <total threshold>` | `ProgressBar 4 10` | Outputs a progress bar that's animated:  **Progress: [====      ]**
 `Spinner` | `Spinner <message>` | `Spinner Example` | Outputs spinner loading animation  **Example: [/]** (this is spinning btw)
@@ -39,6 +39,7 @@ Function | How to use | Example | Output
 `upload_logs` | `upload_logs` | `upload_logs` | Generates termbin.com link of the logs uploaded
 `mod_head` | `mod_head` | `mod_head` | Outputs heading you can use in your script based on your module's `name` `id` `version` `versionCode` `author`, and also the Busybox used
 `prandom` | `prandom [-c] [chances] [target] <message>` | `prandom -c 10 7 "Hello"` | Prints message at random times (default chances=2; target=2)
+`pcenter` | `pcenter <message>` | `prandom "Hello"` | Prints message at center alignment in terminal
 
 
 Contact me in [Telegram](https://t.me/veez21) if needed
