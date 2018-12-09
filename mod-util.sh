@@ -6,8 +6,8 @@
 ##########################################################################################
 
 # Versions
-MODUTILVER=v2.3.1
-MODUTILVCODE=231
+MODUTILVER=v2.4
+MODUTILVCODE=240
 
 # Check A/B slot
 if [ -d /system_root ]; then
