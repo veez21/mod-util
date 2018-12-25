@@ -128,7 +128,7 @@ title_div() {
 # set_file_prop <property> <value> <prop.file>
 set_file_prop() {
   if [ -f "$3" ]; then
-    if grep "$1=" "$3"; then
+    if grep -q "$1=" "$3"; then
       sed -i "s/${1}=.*/${1}=${2}/g" "$3"
     else
       echo "$1=$2" >> "$3"
