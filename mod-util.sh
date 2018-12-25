@@ -65,7 +65,6 @@ else
   false
 fi
 [ $? -ne 0 ] && exit $?
-alias echo='echo -e'
 [ -n "$LOGNAME" ] && alias clear='echo'
 _bbname="$($_bb | head -n1 | awk '{print $1,$2}')"
 BBok=true
@@ -233,10 +232,10 @@ prandom() {
 # Print Center
 # Prints text in the center of terminal
 pcenter() {
-  local CHAR=$(echo $@ | sed 's|\e[[0-9;]*m||g' | wc -m)
+  local CHAR=$(printf "$@" | sed 's|\e[[0-9;]*m||g' | wc -m)
   local hfCOLUMN=$((COLUMNS/2))
   local hfCHAR=$((CHAR/2))
-  local indent=$((hfCOLUMN-hfCHAR-1))
+  local indent=$((hfCOLUMN-hfCHAR))
   echo "$(printf '%*s' "${indent}" '') $@"
 }
 
