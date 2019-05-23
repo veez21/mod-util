@@ -65,6 +65,39 @@ fi
 
 #=========================== Default Functions and Variables
 
+# Set perm
+set_perm() {
+  chown $2:$3 $1 || return 1
+  chmod $4 $1 || return 1
+  [ -z $5 ] && chcon 'u:object_r:system_file:s0' $1 || chcon $5 $1 || return 1
+}
+
+# Set perm recursive
+set_perm_recursive() {
+  find $1 -type d 2>/dev/null | while read dir; do
+    set_perm $dir $2 $3 $4 $6
+  done
+  find $1 -type f -o -type l 2>/dev/null | while read file; do
+    set_perm $file $2 $3 $5 $6
+  done
+}
+
+# Mktouch
+mktouch() {
+  mkdir -p ${1%/*} 2>/dev/null
+  [ -z $2 ] && touch $1 || echo $2 > $1
+  chmod 644 $1
+}
+
+# Grep prop
+grep_prop() {
+  local REGEX="s/^$1=//p"
+  shift
+  local FILES=$@
+  [ -z "$FILES" ] && FILES='/system/build.prop'
+  sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
+}
+
 # Device Info
 # Variables: BRAND MODEL DEVICE API ABI ABI2 ABILONG ARCH
 BRAND=$(getprop ro.product.brand)
