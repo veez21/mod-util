@@ -43,16 +43,6 @@ set_busybox() {
   fi
 }
 _busybox=false
-if [ -d /sbin/.core/busybox ]; then
-  PATH=/sbin/.core/busybox:$PATH
-  _bb=/sbin/.core/busybox/busybox
-  _busybox=true
-elif [ ! -x $SYSTEM/xbin/busybox ]; then
-  set_busybox /data/magisk/busybox
-  set_busybox /data/adb/magisk/busybox
-else
-  alias busybox=""
-fi
 if [ $_busybox ]; then
   true
 elif [ -x $SYSTEM/xbin/busybox ]; then
@@ -232,7 +222,7 @@ prandom() {
 # Print Center
 # Prints text in the center of terminal
 pcenter() {
-  local CHAR=$(printf "$@" | sed 's|\e[[0-9;]*m||g' | wc -m)
+  local CHAR=$(printf "$@" | sed 's|\\e[[0-9;]*m||g' | wc -m)
   local hfCOLUMN=$((COLUMNS/2))
   local hfCHAR=$((CHAR/2))
   local indent=$((hfCOLUMN-hfCHAR))
