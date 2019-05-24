@@ -45,10 +45,10 @@ set_busybox() {
 _busybox=false
 if [ $_busybox ]; then
   true
-elif [ -x $SYSTEM/xbin/busybox ]; then
-  _bb=$SYSTEM/xbin/busybox
-elif [ -x $SYSTEM/bin/busybox ]; then
-  _bb=$SYSTEM/bin/busybox
+elif [ -x $SYSTEM2/xbin/busybox ]; then
+  _bb=$SYSTEM2/xbin/busybox
+elif [ -x $SYSTEM2/bin/busybox ]; then
+  _bb=$SYSTEM2/bin/busybox
 else
   echo "! Busybox not detected"
   echo "Please install one (@osm0sis' busybox recommended)"
