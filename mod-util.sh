@@ -54,6 +54,7 @@ else
   echo "Please install one (@osm0sis' busybox recommended)"
   false
 fi
+set_busybox $_bb
 [ $? -ne 0 ] && exit $?
 [ -n "$LOGNAME" ] && alias clear='echo'
 _bbname="$($_bb | head -n1 | awk '{print $1,$2}')"
@@ -97,6 +98,13 @@ grep_prop() {
   [ -z "$FILES" ] && FILES='/system/build.prop'
   sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
 }
+
+# Abort
+abort() {
+  echo "$1"
+  exit 1
+}
+
 
 # Device Info
 # Variables: BRAND MODEL DEVICE API ABI ABI2 ABILONG ARCH
