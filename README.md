@@ -6,6 +6,8 @@ This provides you with useful functions that might help you easily accomplish st
 ### Magisk Modules that uses this template (you can refer to how things are used by these modules)
 * [Terminal Debloater](https://github.com/Magisk-Modules-Repo/terminal_debloater)
 * [Terminal App Systemizer](https://github.com/Magisk-Modules-Repo/terminal_systemizer)
+* [Fontchanger](https://github.com/Magisk-Modules-Repo/Fontchanger)
+* [Hidden Settings](https://github.com/Magisk-Modules-Repo/hidden_settings)
 * Others
 
 ### Stuff included
@@ -21,10 +23,10 @@ This provides you with useful functions that might help you easily accomplish st
 ### How to include in a Magisk Module
 1. Place `script` (rename to anything you want) in /system/bin or xbin or anywhere you want
 2. Add `mod-util.sh` in **common** folder of the Magisk module
-3. Add this in **config.sh**'s `set_permissions` function
+3. Add this in **install.sh**'s `set_permissions` function
 >cp -af $INSTALLER/common/mod-util.sh $MODPATH/mod-util.sh
 set_perm $MODPATH/mod-util.sh 0 0 0777
-4. Add your Module's id in ID of the script
+4. Add the ID of your module in the ID of the script
 
 ### Functions in mod-util.sh
 
