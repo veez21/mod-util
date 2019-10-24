@@ -41,7 +41,7 @@ Function | How to use | Example | Output
 `upload_logs` | `upload_logs` | `upload_logs` | Generates termbin.com link of the logs uploaded
 `mod_head` | `mod_head` | `mod_head` | Outputs heading you can use in your script based on your module's `name` `id` `version` `versionCode` `author`, and also the Busybox used
 `prandom` | `prandom [-c] [chances] [target] <message>` | `prandom -c 10 7 "Hello"` | Prints message at random times (default chances=2; target=2)
-`pcenter` | `pcenter <message>` | `pcenter "Hello"` | Prints message at center alignment in terminal
+`pcenter` | `pcenter <message>` | `pcenter "Hello"` | Prints message at center alignment in terminal (work in progress)
 
 
 Contact me in [Telegram](https://t.me/veez21) if needed
