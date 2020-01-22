@@ -248,10 +248,15 @@ upload_logs() {
     [ -s $oldVERLOG ] && oldverUp=$(cat $oldVERLOG | nc termbin.com 9999) || oldverUp=none
     [ -s $LOG ] && logUp=$(cat $LOG | nc termbin.com 9999) || logUp=none
     [ -s $oldLOG ] && oldlogUp=$(cat $oldLOG | nc termbin.com 9999) || oldlogUp=none
+    [ -s $stdoutLOG ] && stdoutUp=$(cat $stdoutLOG | nc termbin.com 9999) || stdoutUp=none
+    [ -s $oldstdoutLOG ] && oldstdoutUp=$(cat $oldstdoutLOG | nc termbin.com 9999) || oldstdoutUp=none
     echo -n "Link: "
     echo "$MODEL ($DEVICE) API $API\n$ROM\n$ID\n
     O_Verbose: $oldverUp
     Verbose:   $verUp
+
+    O_STDOUT:  $oldstdoutUp
+    STDOUT:    $stdoutUp
 
     O_Log: $oldlogUp
     Log:   $logUp" | nc termbin.com 9999
