@@ -43,7 +43,7 @@ set_busybox() {
   fi
 }
 _busybox=false
-if $_busybox; then
+if [ -n $_bb ]; then
   true
 elif [ -x $SYSTEM2/xbin/busybox ]; then
   _bb=$SYSTEM2/xbin/busybox
@@ -97,6 +97,12 @@ grep_prop() {
   local FILES=$@
   [ -z "$FILES" ] && FILES='/system/build.prop'
   sed -n "$REGEX" $FILES 2>/dev/null | head -n 1
+}
+
+# Is mounted
+is_mounted() {
+  grep -q " `readlink -f $1` " /proc/mounts 2>/dev/null
+  return $?
 }
 
 # Abort
@@ -234,8 +240,8 @@ e_spinner() {
 # test_connection
 # tests if there's internet connection
 test_connection() {
-  echo -n "Testing internet connection "
-  ping -q -c 1 -W 1 google.com >/dev/null 2>&1 && echo "- OK" || { echo "Error"; false; }
+  echo "Testing internet connection"
+  (ping -q -c 1 -W 1 google.com >/dev/null 2>&1 & e_spinner) && echo " - OK" || { echo " - Error"; false; }
 }
 
 # Log files will be uploaded to termbin.com
