@@ -20,13 +20,12 @@ This provides you with useful functions that might help you easily accomplish st
 * Provides basic ANSI color codes for you to use
 * Useful functions and variables
 
-### How to include in a Magisk Module
+### How to include in a Magisk Module (If you're not using SKIPUNZIP)
 1. Place `script` (rename to anything you want) in /system/bin or xbin or anywhere you want
-2. Add `mod-util.sh` in **common** folder of the Magisk module
-3. Add this in **install.sh**'s `set_permissions` function
->cp -af $INSTALLER/common/mod-util.sh $MODPATH/mod-util.sh
-set_perm $MODPATH/mod-util.sh 0 0 0777
-4. Add the ID of your module in the ID of the script
+2. Add `mod-util.sh` in root folder of the Magisk module
+3. Add this in **customize.sh**
+>set_perm $MODPATH/mod-util.sh 0 0 0777
+4. Add the `ID` of your module in the `ID` of the [script](https://github.com/veez21/mod-util/blob/69f31c10c7528463ae9a1427669939d048bf2f39/script#L7)
 
 ### Functions in mod-util.sh
 
