@@ -43,7 +43,7 @@ set_busybox() {
   fi
 }
 _busybox=false
-if [ ! -z $_bb ]; then
+if [ -n $_bb ]; then
   true
 elif [ -x $SYSTEM2/xbin/busybox ]; then
   _bb=$SYSTEM2/xbin/busybox
