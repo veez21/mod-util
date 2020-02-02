@@ -37,7 +37,6 @@ oldstdoutLOG=$MODDIR/logs/$ID-STDOUT-old.log
 mv -f $VERLOG $oldVERLOG 2>/dev/null; mv -f $LOG $oldLOG 2>/dev/null; mv -f $stdoutLOG $oldstdoutLOG 2>/dev/null
 exec 3>&1
 exec 1>$stdoutLOG
-exec 2>$LOG
 set -x 2>$VERLOG
 
 # Main
