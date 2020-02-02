@@ -36,7 +36,7 @@ Function | How to use | Example | Output
 `set_file_prop` | `set_file_prop <property> <value> <file.prop>` | `set_file_prop ro.example true /cache/example.prop` | **none**
 `ProgressBar` | `ProgressBar <progress> <total threshold>` | `ProgressBar 4 10` | Outputs a progress bar that's animated:  **Progress: [====      ]**
 `Spinner` | `Spinner <message>` | `Spinner Example` | Outputs spinner loading animation  **Example: [/]** (this is spinning btw)
-`e_spinner` | `cmd & e_pinner <message>` | `cmd & e_spinner Example` | Outputs spinner loading animation until the process of `cmd` is finished  **Example: [/]** (this is spinning btw)
+`e_spinner` | `cmd & e_spinner <message>` | `cmd & e_spinner Example` | Outputs spinner loading animation until the process of `cmd` is finished  **Example: [/]** (this is spinning btw)
 `test_connection` | `test_connection` | `test_connection` | Tells you if internet's ok or not
 `upload_logs` | `upload_logs` | `upload_logs` | Generates termbin.com link of the logs uploaded
 `mod_head` | `mod_head` | `mod_head` | Outputs heading you can use in your script based on your module's `name` `id` `version` `versionCode` `author`, and also the Busybox used
