@@ -11,7 +11,7 @@ _name=$(basename $0)
 ls /data >/dev/null 2>&1 || { echo "$ID needs to run as root!"; echo "type 'su' then '$_name'"; exit 1; }
 
 # Magisk Mod Directory
-MOUNTPATH="/data/adb/modules"
+MOUNTPATH="/sbin/.magisk/modules"
 MODDIR="$MOUNTPATH/$ID"
 [ ! -d $MODDIR ] && { echo "Module not detected!"; exit 1; }
 
